@@ -25,7 +25,7 @@ class Search:
         self.db = []
 
         for node in tree.root.descendants():
-            if not node._refid is None and node.access != cindex.CXXAccessSpecifier.PRIVATE:
+            if not node._refid is None:
                 self.make_index(node)
 
     def make_index(self, node):

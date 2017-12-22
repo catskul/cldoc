@@ -65,7 +65,7 @@ class Class(Node):
             yield child
 
         for base in self._all_bases():
-            if base.node and base.access != cindex.CXXAccessSpecifier.PRIVATE:
+            if base.node:
                 yield base.node
 
                 for child in base.node.resolve_nodes:

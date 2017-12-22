@@ -686,9 +686,6 @@ class GirTree(documentmerger.DocumentMerger):
         return None
 
     def parse_field(self, cursor):
-        if 'private' in cursor.node.attrib and cursor.node.attrib['private'] == '1':
-            return None
-
         return nodes.Field(cursor, GirComment(cursor))
 
     def parse_constructor(self, cursor):

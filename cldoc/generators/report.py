@@ -69,9 +69,6 @@ class Report:
             if not isinstance(node, nodes.Function):
                 continue
 
-            if node.access == cindex.CXXAccessSpecifier.PRIVATE:
-                continue
-
             if node.comment is None:
                 continue
 
@@ -137,9 +134,6 @@ class Report:
 
         for node in self.tree.all_nodes:
             cname = node.__class__.__name__
-
-            if node.access == cindex.CXXAccessSpecifier.PRIVATE:
-                continue
 
             if not cname in pertype:
                 pertype[cname] = Report.Coverage(name=cname.lower())

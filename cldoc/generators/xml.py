@@ -501,8 +501,6 @@ class Xml(Generator):
         self.call_type_specific(node, elem, 'to_xml')
 
         for child in node.sorted_children():
-            if child.access == cindex.CXXAccessSpecifier.PRIVATE:
-                continue
 
             self.refid(child)
 
@@ -544,9 +542,6 @@ class Xml(Generator):
         return elem
 
     def generate_node(self, node):
-        # Ignore private stuff
-        if node.access == cindex.CXXAccessSpecifier.PRIVATE:
-            return
 
         self.refid(node)
 
